@@ -12,7 +12,7 @@ class TPQueue {
   ITEM * head;
  public:
   TPQueue() : head(nullptr) { }
-  void push (const T&);
+  void push(const T&);
   T pop();//вывод типа данных Т
 };
 
@@ -23,11 +23,13 @@ struct SYM {
 
 template <typename T>
 void TPQueue <T> :: push(const T&) {
-  if(!head) {
+  if (!head) {
     head = new ITEM;
     head -> value = value;
-    head -> next = nullptr;//присваивание следующему элементу нуля, чтобы существовала ссылка на следующий будущий элемент
-  } else if (value.prior > head -> value.prior) {//случай если полученный приоритет выше чем приоритет который у элемента головы
+    head -> next = nullptr;
+   //присваивание следующему элементу нуля, чтобы существовала ссылка на следующий будущий элемент
+  } else if (value.prior > head -> value.prior) {
+   //случай если полученный приоритет выше чем приоритет который у элемента головы
     ITEM * temp = new ITEM;
     temp -> value = value;
     temp -> next = head;
@@ -52,16 +54,13 @@ void TPQueue <T> :: push(const T&) {
 
 template <typename T>
 T TPQueue <T> :: pop() {
-  if(head) {
+  if (head) {
     ITEM * temp = head -> next;
     delete head;
     head = temp;
     return value;
   } else {
-    throw std :: string ("!pusto");
+    throw std :: string("!pusto");
   }
 }
-  
-
-
 #endif  // INCLUDE_TPQUEUE_H_
