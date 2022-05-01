@@ -57,6 +57,7 @@ template <typename T>
 T TPQueue <T> :: pop() {
   if (head) {
     ITEM * temp = head -> next;
+    T value = head -> value;
     delete head;
     head = temp;
     return value;
