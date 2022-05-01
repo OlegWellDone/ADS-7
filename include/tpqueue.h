@@ -23,7 +23,7 @@ struct SYM {
 };
 
 template <typename T>
-void TPQueue <T> :: push(const T&) {
+void TPQueue <T> :: push(const T& value) {
   if (!head) {
     head = new ITEM;
     head -> value = value;
